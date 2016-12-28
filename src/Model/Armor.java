@@ -5,8 +5,8 @@ public class Armor extends Item {
 	private int durability;
 	private int defense;
 	
-	public Armor(String name, int value, int durability, int defense){
-		super(name, value);
+	public Armor(String name, Coinage value, double weight, int durability, int defense){
+		super(name, value, weight);
 		this.durability = durability;
 		this.defense = defense;
 	}

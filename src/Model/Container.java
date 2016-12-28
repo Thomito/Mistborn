@@ -7,13 +7,13 @@ public class Container extends Item {
 	private ArrayList<Item> inventory;
 	private int capacity;
 	
-	public Container(String name, int value) {
+	public Container(String name, Coinage value) {
 		super(name, value);
 		inventory = new ArrayList();
 	}
 
-	public Container(String name, int value, ArrayList<Item> inventory){
-		super(name, value);
+	public Container(String name, Coinage value, double weight, ArrayList<Item> inventory){
+		super(name, value, weight);
 		this.inventory = inventory;
 	}
 	

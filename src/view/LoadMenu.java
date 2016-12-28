@@ -3,12 +3,15 @@ package view;
 import java.util.List;
 import java.util.Scanner;
 
-import controllers.MenuController;
+import menucontrollers.MenuController;
+import model.Game;
 
 public class LoadMenu implements Menu {
 
-	public LoadMenu() {
-
+	private MenuController menuController;
+	
+	public LoadMenu(MenuController menuController) {
+		this.menuController = menuController;
 	}
 
 	@Override
@@ -20,8 +23,8 @@ public class LoadMenu implements Menu {
 		if(selection == 0){
 			
 		}
-			//MenuController.showStartMenu();
-		//GameController.loadgame(selection)
+		menuController.showStartMenu();
+		menuController.getGameController().loadGame(selection);
 		
 	}
 
@@ -34,10 +37,9 @@ public class LoadMenu implements Menu {
 
 		System.out.println("Welcome Adventurer, which adventure would you like to continue?");
 		System.out.println(MenuController.returnOption());
-		/*
-		List<Game> games = GameController.getSavedGames();
-		for(int i = 0; i < games.size(); i++)			System.out.println(i + ". " + games.get(i).getName());		
-		 */
+		List<Game> games = menuController.getGameController().getSavedGames();
+		for(int i = 0; i < games.size(); i++)	
+			System.out.println(i + ". " + games.get(i).getName());			 
 		selection = input.nextInt();
 		return selection;
 	}
